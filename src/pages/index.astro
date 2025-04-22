@@ -1,0 +1,786 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const currentYear = new Date().getFullYear(); // Año actual
+---
+
+<Layout>
+	<!-- Header -->
+	<header class="header bg-white shadow-md sticky top-0 z-50">
+	  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+	    <!-- Logo -->
+	    <a href="#hero" class="flex items-center space-x-2">
+	      <!-- <img src="/images/logo.png" alt="Logo Cruceros Caribe" class="h-10 w-auto" /> -->
+	      <span class="text-xl font-bold text-blue-600">Cruceros Caribe</span>
+	    </a>
+
+	    <!-- Menú de Navegación (Oculto en Móvil) -->
+	    <nav class="hidden md:flex space-x-6 items-center">
+	      <a href="#about-us" class="text-gray-700 hover:text-blue-600 transition duration-300">Nosotros</a>
+	      <a href="#featured-destinations" class="text-gray-700 hover:text-blue-600 transition duration-300">Destinos</a>
+	      <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition duration-300">Testimonios</a>
+	      <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contacto</a>
+	    </nav>
+
+	    <!-- Botón de Acción Principal -->
+	    <a
+	      href="#reserva"
+	      class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300"
+	    >
+	      Reserva ahora
+	    </a>
+
+	    <!-- Botón de Menú Móvil -->
+	    <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
+	      <svg
+	        xmlns="http://www.w3.org/2000/svg"
+	        class="h-6 w-6"
+	        fill="none"
+	        viewBox="0 0 24 24"
+	        stroke="currentColor"
+	      >
+	        <path
+	          stroke-linecap="round"
+	          stroke-linejoin="round"
+	          stroke-width="2"
+	          d="M4 6h16M4 12h16M4 18h16"
+	        />
+	      </svg>
+	    </button>
+	  </div>
+
+	  <!-- Sidebar Móvil -->
+	  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-full left-0 w-full">
+	    <nav class="flex flex-col space-y-4 p-4">
+	      <a href="#about-us" class="text-gray-700 hover:text-blue-600 transition duration-300">Nosotros</a>
+
+	      <a href="#featured-destinations" class="text-gray-700 hover:text-blue-600 transition duration-300">Destinos</a>
+
+	      <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition duration-300">Testimonios</a>
+
+	      <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contacto</a>
+	    	
+	      <a
+	        href="#reserva"
+	        class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300"
+	      >
+	        Reserva ahora
+	      </a>
+	    </nav>
+	  </div>
+	</header>
+
+	<!-- Script para el Menú Móvil -->
+	<script is:inline>
+	  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+	  const mobileMenu = document.getElementById('mobile-menu');
+
+	  mobileMenuBtn.addEventListener('click', () => {
+	    mobileMenu.classList.toggle('hidden');
+	  });
+	</script>
+
+	<!-- Hero -->
+	<section id="hero" class="hero relative bg-cover bg-center h-screen flex items-center justify-center text-white">
+	  <!-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> -->
+	  <div data-aos="fade-up" class="relative z-10 text-center px-14">
+	    <h1 class="hero-text text-3xl md:text-5xl font-bold mb-4">Explora el Caribe colombiano en un crucero inolvidable</h1>
+	    <p class="text-xl mb-8">Navega por islas paradisíacas y descubre la magia del Caribe.</p>
+	    <a href="#packages" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+	      Descubre nuestros paquetes
+	    </a>
+	  </div>
+	</section>
+
+	<!-- Sobre nosotros -->
+	<section id="about-us" class="about-us py-16 bg-gray-50">
+	  <div class="container mx-auto px-4 text-center">
+	    <!-- Texto Introductorio -->
+	    <h2 data-aos="fade-left" class="text-3xl font-bold mb-6">Sobre Nosotros</h2>
+	    <p data-aos="fade-left" class="text-lg text-gray-700 mb-12 max-w-[75ch] mx-auto">
+	      Somos una empresa dedicada a ofrecer experiencias inolvidables en cruceros por el Caribe colombiano. Con más de 10 años de trayectoria, nos comprometemos a brindarte un servicio excepcional, precios competitivos y momentos únicos que quedarán grabados en tu memoria para siempre.
+	    </p>
+
+	    <!-- Iconos Destacados -->
+	    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+	      <!-- Servicio de Calidad -->
+	      <div data-aos="fade-right" class="flex flex-col items-center space-y-4">
+	        <svg
+	          xmlns="http://www.w3.org/2000/svg"
+	          class="h-12 w-12 text-blue-600"
+	          fill="none"
+	          viewBox="0 0 24 24"
+	          stroke="currentColor"
+	        >
+	          <path
+	            stroke-linecap="round"
+	            stroke-linejoin="round"
+	            stroke-width="2"
+	            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+	          />
+	        </svg>
+	        <h3 class="text-xl font-semibold">Servicio de Calidad</h3>
+	        <p class="text-gray-600">
+	          Nos aseguramos de que cada detalle de tu viaje sea perfecto.
+	        </p>
+	      </div>
+
+	      <!-- Precios Competitivos -->
+	      <div data-aos="fade-right" class="flex flex-col items-center space-y-4">
+	        <svg
+	          xmlns="http://www.w3.org/2000/svg"
+	          class="h-12 w-12 text-green-600"
+	          fill="none"
+	          viewBox="0 0 24 24"
+	          stroke="currentColor"
+	        >
+	          <path
+	            stroke-linecap="round"
+	            stroke-linejoin="round"
+	            stroke-width="2"
+	            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"
+	          />
+	        </svg>
+	        <h3 class="text-xl font-semibold">Precios Competitivos</h3>
+	        <p class="text-gray-600">
+	          Ofrecemos paquetes accesibles sin sacrificar la calidad.
+	        </p>
+	      </div>
+
+	      <!-- Experiencias Únicas -->
+	      <div data-aos="fade-right" class="flex flex-col items-center space-y-4">
+	        <svg
+	          xmlns="http://www.w3.org/2000/svg"
+	          class="h-12 w-12 text-yellow-600"
+	          fill="none"
+	          viewBox="0 0 24 24"
+	          stroke="currentColor"
+	        >
+	          <path
+	            stroke-linecap="round"
+	            stroke-linejoin="round"
+	            stroke-width="2"
+	            d="M12 14l9-5-9-5-9 5 9 5z"
+	          />
+	        </svg>
+	        <h3 class="text-xl font-semibold">Experiencias Únicas</h3>
+	        <p class="text-gray-600">
+	          Cada crucero está diseñado para crear recuerdos inolvidables.
+	        </p>
+	      </div>
+
+	      <!-- Seguridad Garantizada -->
+	      <div data-aos="fade-right" class="flex flex-col items-center space-y-4">
+	        <svg
+	          xmlns="http://www.w3.org/2000/svg"
+	          class="h-12 w-12 text-red-600"
+	          fill="none"
+	          viewBox="0 0 24 24"
+	          stroke="currentColor"
+	        >
+	          <path
+	            stroke-linecap="round"
+	            stroke-linejoin="round"
+	            stroke-width="2"
+	            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
+	          />
+	        </svg>
+	        <h3 class="text-xl font-semibold">Seguridad Garantizada</h3>
+	        <p class="text-gray-600">
+	          Tu seguridad es nuestra prioridad en cada viaje.
+	        </p>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Destinos -->
+	<section id="featured-destinations" class="featured-destinations relative py-16 w-[90%] mx-auto bg-white">
+	  <div class="swiper container relative mx-auto px-4 text-center">
+	    <!-- Título de la Sección -->
+	    <h2 data-aos="fade-up" class="text-3xl font-bold mb-8">Destinos Destacados</h2>
+
+	    <!-- Grid de Imágenes -->
+	    <div class="swiper-wrapper">
+	      <!-- San Andrés -->
+	      <div class="swiper-slide rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+	        <img
+	          src="https://images.pexels.com/photos/2598675/pexels-photo-2598675.jpeg?auto=compress&cs=tinysrgb&w=600"
+	          alt="San Andrés"
+	          class="w-full h-64 object-cover"
+	        />
+	        <div class="p-6">
+	          <h3 class="text-xl font-semibold mb-2">San Andrés</h3>
+	          <p class="text-gray-700 mb-4">
+	            Un paraíso caribeño con playas de arena blanca y aguas cristalinas.
+	          </p>
+	          <a href="#san-andres" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
+	            Más información
+	          </a>
+	        </div>
+	      </div>
+
+	      <!-- Providencia -->
+	      <div class="swiper-slide rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+	        <img
+	          src="https://images.pexels.com/photos/2598683/pexels-photo-2598683.jpeg?auto=compress&cs=tinysrgb&w=600"
+	          alt="Providencia"
+	          class="w-full h-64 object-cover"
+	        />
+	        <div class="p-6">
+	          <h3 class="text-xl font-semibold mb-2">Providencia</h3>
+	          <p class="text-gray-700 mb-4">
+	            Una isla tranquila y auténtica, ideal para conectarte con la naturaleza.
+	          </p>
+	          <a href="#providencia" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
+	            Más información
+	          </a>
+	        </div>
+	      </div>
+	      <!-- Providencia -->
+	      <div class="swiper-slide rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+	        <img
+	          src="https://images.pexels.com/photos/921724/pexels-photo-921724.jpeg?auto=compress&cs=tinysrgb&w=600"
+	          alt="Providencia"
+	          class="w-full h-64 object-cover"
+	        />
+	        <div class="p-6">
+	          <h3 class="text-xl font-semibold mb-2">Providencia</h3>
+	          <p class="text-gray-700 mb-4">
+	            Una isla tranquila y auténtica, ideal para conectarte con la naturaleza.
+	          </p>
+	          <a href="#providencia" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
+	            Más información
+	          </a>
+	        </div>
+	      </div>
+	      <!-- Providencia -->
+	      <div class="swiper-slide rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+	        <img
+	          src="https://images.pexels.com/photos/3601450/pexels-photo-3601450.jpeg?auto=compress&cs=tinysrgb&w=600"
+	          alt="Providencia"
+	          class="w-full h-64 object-cover"
+	        />
+	        <div class="p-6">
+	          <h3 class="text-xl font-semibold mb-2">Providencia</h3>
+	          <p class="text-gray-700 mb-4">
+	            Una isla tranquila y auténtica, ideal para conectarte con la naturaleza.
+	          </p>
+	          <a href="#providencia" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
+	            Más información
+	          </a>
+	        </div>
+	      </div>
+
+	      <!-- Isla Mucura -->
+	      <div class="swiper-slide rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+	        <img
+	          src="https://images.pexels.com/photos/2927021/pexels-photo-2927021.jpeg?auto=compress&cs=tinysrgb&w=600"
+	          alt="Isla Mucura"
+	          class="w-full h-64 object-cover"
+	        />
+	        <div class="p-6">
+	          <h3 class="text-xl font-semibold mb-2">Isla Mucura</h3>
+	          <p class="text-gray-700 mb-4">
+	            Un refugio paradisíaco perfecto para el buceo y el snorkel.
+	          </p>
+	          <a href="#isla-mucura" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
+	            Más información
+	          </a>
+	        </div>
+	      </div>
+	    </div>
+
+	    <!-- If we need navigation buttons -->
+	  </div>
+	    <div class="swiper-button-prev hidden sm:block"></div>
+	    <div class="swiper-button-next hidden sm:block"></div>
+	</section>
+
+	<script type="module">
+	  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+
+	  const swiper = new Swiper(".swiper", {
+	  	autoplay: true,
+	  	loop: true,
+	  	direction: "horizontal",
+	  	slidesPerView: 1,
+	  	spaceBetween: 10,
+	  	centeredSlides: true,
+	  	navigation: {
+	  	  nextEl: '.swiper-button-next',
+	  	  prevEl: '.swiper-button-prev',
+	  	},
+	  	breakpoints: {
+	  		640: {
+	  		  slidesPerView: 2,
+	  		  spaceBetween: 20,
+	  		},
+	  		768: {
+	  		  slidesPerView: 3,
+	  		  spaceBetween: 30,
+	  		},
+	  	}
+	  })
+	</script>
+
+	<!-- Ventajas de elegirnos -->
+	<section id="why-choose-us" class="why-choose-us py-16 bg-gray-50">
+	  <div class="container mx-auto px-4 text-center">
+	    <!-- Título de la Sección -->
+	    <h2 data-aos="fade-up" class="text-3xl font-bold mb-8">¿Por qué elegirnos?</h2>
+
+	    <!-- Lista de Ventajas -->
+	    <div class="grid-ventajas grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+	    	<!-- Ubicación Estratégica -->
+	    	<div data-aos="fade-up" class="flex flex-col items-center space-y-4">
+	    	  <svg
+	    	    xmlns="http://www.w3.org/2000/svg"
+	    	    class="h-12 w-12 text-green-600"
+	    	    fill="none"
+	    	    viewBox="0 0 24 24"
+	    	    stroke="currentColor"
+	    	  >
+	    	    <path
+	    	      stroke-linecap="round"
+	    	      stroke-linejoin="round"
+	    	      stroke-width="2"
+	    	      d="M17.657 16.657L13.414 12.414a6 6 0 10-8.486 8.486l4.242-4.242a4 4 0 015.656-5.656z"
+	    	    />
+	    	  </svg>
+	    	  <h3 class="text-xl font-semibold">Ubicación Estratégica</h3>
+	    	  <p class="text-gray-700 text-center">
+	    	    Nuestros puertos están cerca de los destinos más exclusivos.
+	    	  </p>
+	    	</div>
+
+	    	<!-- Servicios Adicionales -->
+	    	<div data-aos="fade-down" class="flex flex-col items-center space-y-4">
+	    	  <svg
+	    	    xmlns="http://www.w3.org/2000/svg"
+	    	    class="h-12 w-12 text-yellow-600"
+	    	    fill="none"
+	    	    viewBox="0 0 24 24"
+	    	    stroke="currentColor"
+	    	  >
+	    	    <path
+	    	      stroke-linecap="round"
+	    	      stroke-linejoin="round"
+	    	      stroke-width="2"
+	    	      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+	    	    />
+	    	  </svg>
+	    	  <h3 class="text-xl font-semibold">Servicios Adicionales</h3>
+	    	  <p class="text-gray-700 text-center">
+	    	    Ofrecemos actividades exclusivas como buceo y tours culturales.
+	    	  </p>
+	    	</div>
+
+	    	<!-- Atención al Cliente -->
+	    	<div data-aos="fade-left" class="flex flex-col items-center space-y-4">
+	    	  <svg
+	    	    xmlns="http://www.w3.org/2000/svg"
+	    	    class="h-12 w-12 text-red-600"
+	    	    fill="none"
+	    	    viewBox="0 0 24 24"
+	    	    stroke="currentColor"
+	    	  >
+	    	    <path
+	    	      stroke-linecap="round"
+	    	      stroke-linejoin="round"
+	    	      stroke-width="2"
+	    	      d="M14.828 14.828a4 4 0 01-5.656 0l-.707-.707a4 4 0 015.656-5.656l.707.707zM12 5v14"
+	    	    />
+	    	  </svg>
+	    	  <h3 class="text-xl font-semibold">Atención al Cliente</h3>
+	    	  <p class="text-gray-700 text-center">
+	    	    Estamos disponibles las 24 horas para garantizar tu satisfacción.
+	    	  </p>
+	    	</div>
+	    	<!-- Experiencia -->
+	    	<div data-aos="fade-right" class="flex flex-col items-center space-y-4">
+	    	  <svg
+	    	    xmlns="http://www.w3.org/2000/svg"
+	    	    class="h-12 w-12 text-blue-600"
+	    	    fill="none"
+	    	    viewBox="0 0 24 24"
+	    	    stroke="currentColor"
+	    	  >
+	    	    <path
+	    	      stroke-linecap="round"
+	    	      stroke-linejoin="round"
+	    	      stroke-width="2"
+	    	      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+	    	    />
+	    	  </svg>
+	    	  <h3 class="text-xl font-semibold">Experiencia</h3>
+	    	  <p class="text-gray-700 text-center">
+	    	    Más de 15 años liderando cruceros en el Caribe colombiano.
+	    	  </p>
+	    	</div>
+	      <!-- Cruceros Todo Incluido -->
+	      <div data-aos="fade-up" class="flex flex-col items-center space-y-4">
+	        <svg
+	          xmlns="http://www.w3.org/2000/svg"
+	          class="h-12 w-12 text-blue-600"
+	          fill="none"
+	          viewBox="0 0 24 24"
+	          stroke="currentColor"
+	        >
+	          <path
+	            stroke-linecap="round"
+	            stroke-linejoin="round"
+	            stroke-width="2"
+	            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+	          />
+	        </svg>
+	        <h3 class="text-xl font-semibold">Cruceros Todo Incluido</h3>
+	        <p class="text-gray-700 text-center">
+	          Disfruta de comidas, bebidas y actividades sin preocupaciones.
+	        </p>
+	      </div>
+
+	      <!-- Servicio Personalizado -->
+	      <div data-aos="fade-down" class="flex flex-col items-center space-y-4">
+	        <svg
+	          xmlns="http://www.w3.org/2000/svg"
+	          class="h-12 w-12 text-green-600"
+	          fill="none"
+	          viewBox="0 0 24 24"
+	          stroke="currentColor"
+	        >
+	          <path
+	            stroke-linecap="round"
+	            stroke-linejoin="round"
+	            stroke-width="2"
+	            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"
+	          />
+	        </svg>
+	        <h3 class="text-xl font-semibold">Servicio Personalizado</h3>
+	        <p class="text-gray-700 text-center">
+	          Atención exclusiva para hacer tu viaje inolvidable.
+	        </p>
+	      </div>
+
+	      <!-- Itinerarios Exclusivos -->
+	      <div data-aos="fade-up" class="flex flex-col items-center space-y-4">
+	        <svg
+	          xmlns="http://www.w3.org/2000/svg"
+	          class="h-12 w-12 text-yellow-600"
+	          fill="none"
+	          viewBox="0 0 24 24"
+	          stroke="currentColor"
+	        >
+	          <path
+	            stroke-linecap="round"
+	            stroke-linejoin="round"
+	            stroke-width="2"
+	            d="M12 14l9-5-9-5-9 5 9 5z"
+	          />
+	        </svg>
+	        <h3 class="text-xl font-semibold">Itinerarios Exclusivos</h3>
+	        <p class="text-gray-700 text-center">
+	          Explora rutas únicas diseñadas para sorprenderte.
+	        </p>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Testimonios -->
+	<section data-aos="fade-up" id="testimonials" class="testimonials py-16 bg-gray-100">
+	  <div class="container mx-auto px-4 text-center">
+	    <!-- Título de la Sección -->
+	    <h2 class="text-3xl font-bold mb-8">Lo que dicen nuestros clientes</h2>
+
+	    <!-- Slideshow de Comentarios -->
+	    <div class="relative">
+	      <!-- Contenedor del Slide -->
+	      <div class="flex justify-center flex-wrap transition-transform duration-500 ease-in-out" id="testimonial-slider">
+	        <!-- Testimonio 1 -->
+	        <div class="w-[250px] flex flex-col items-center space-y-6 p-4">
+	          <p class="text-lg text-gray-700 italic">
+	            "El mejor crucero que he hecho en mi vida. ¡Una experiencia inolvidable!"
+	          </p>
+	          <p class="font-semibold text-blue-600">- María Gómez</p>
+	        </div>
+
+	        <!-- Testimonio 2 -->
+	        <div class="w-[250px] flex flex-col items-center space-y-6 p-4">
+	          <p class="text-lg text-gray-700 italic">
+	            "Una experiencia única que nunca olvidaré. El servicio fue excepcional."
+	          </p>
+	          <p class="font-semibold text-blue-600">- Juan Pérez</p>
+	        </div>
+
+	        <!-- Testimonio 3 -->
+	        <div class="w-[250px] flex flex-col items-center space-y-6 p-4">
+	          <p class="text-lg text-gray-700 italic">
+	            "El Caribe colombiano es aún más mágico cuando lo exploras en un crucero como este."
+	          </p>
+	          <p class="font-semibold text-blue-600">- Laura Torres</p>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Contacto -->
+	<section id="contact" class="contact py-16 bg-gray-100">
+	  <div class="container mx-auto px-4">
+	    <!-- Título de la Sección -->
+	    <h2 class="text-3xl font-bold text-center mb-8">Contáctenos</h2>
+
+	    <!-- Contenido: Formulario + Mapa + Información -->
+	    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+	      <!-- Formulario de Contacto -->
+	      <div class="bg-white p-8 rounded-lg shadow-lg">
+	        <h3 class="text-2xl font-semibold mb-6">Escríbenos</h3>
+	        <form action="/submit-contact" method="POST" class="space-y-4">
+	          <!-- Nombre -->
+	          <div>
+	            <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+	            <input
+	              type="text"
+	              id="name"
+	              name="name"
+	              required
+	              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+	            />
+	          </div>
+
+	          <!-- Correo Electrónico -->
+	          <div>
+	            <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+	            <input
+	              type="email"
+	              id="email"
+	              name="email"
+	              required
+	              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+	            />
+	          </div>
+
+	          <!-- Teléfono -->
+	          <div>
+	            <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono</label>
+	            <input
+	              type="tel"
+	              id="phone"
+	              name="phone"
+	              required
+	              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+	            />
+	          </div>
+
+	          <!-- Mensaje -->
+	          <div>
+	            <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
+	            <textarea
+	              id="message"
+	              name="message"
+	              rows="4"
+	              required
+	              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+	            ></textarea>
+	          </div>
+
+	          <!-- Botón de Envío -->
+	          <button
+	            type="submit"
+	            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300"
+	          >
+	            Enviar Mensaje
+	          </button>
+	        </form>
+	      </div>
+
+	      <!-- Mapa Interactivo e Información de Contacto -->
+	      <div class="space-y-8">
+	        <!-- Mapa -->
+	        <div class="rounded-lg overflow-hidden shadow-lg">
+	          <iframe
+	            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.289179575478!2d-75.56789342521525!3d10.42788666706439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef62f9b8f5c6c5f%3A0x2e4a7e4b9c8e5a2b!2sPuerto%20de%20Cartagena!5e0!3m2!1sen!2sco!4v1698781234567"
+	            width="100%"
+	            height="300"
+	            style="border: 0"
+	            allowfullscreen=""
+	            loading="lazy"
+	            referrerpolicy="no-referrer-when-downgrade"
+	            class="rounded-lg"
+	          ></iframe>
+	        </div>
+
+	        <!-- Información de Contacto -->
+	        <div class="text-left space-y-4">
+	          <h3 class="text-2xl font-semibold">Información de Contacto</h3>
+	          <p class="text-gray-700 flex items-center">
+	            <svg
+	              xmlns="http://www.w3.org/2000/svg"
+	              class="h-5 w-5 mr-2 text-blue-600"
+	              fill="none"
+	              viewBox="0 0 24 24"
+	              stroke="currentColor"
+	            >
+	              <path
+	                stroke-linecap="round"
+	                stroke-linejoin="round"
+	                stroke-width="2"
+	                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.68l1.28 2.56a1 1 0 00.948.68h9.88a2 2 0 011.998 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"
+	              />
+	            </svg>
+	            Teléfono: <a href="tel:+573001234567" class="ml-1 text-blue-600 hover:underline">+57 300 123 4567</a>
+	          </p>
+	          <p class="text-gray-700 flex items-center">
+	            <svg
+	              xmlns="http://www.w3.org/2000/svg"
+	              class="h-5 w-5 mr-2 text-green-600"
+	              fill="none"
+	              viewBox="0 0 24 24"
+	              stroke="currentColor"
+	            >
+	              <path
+	                stroke-linecap="round"
+	                stroke-linejoin="round"
+	                stroke-width="2"
+	                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+	              />
+	            </svg>
+	            Correo: <a href="mailto:info@crucerocaribe.com" class="ml-1 text-green-600 hover:underline">info@crucerocaribe.com</a>
+	          </p>
+	          <p class="text-gray-700 flex items-center">
+	            <svg
+	              xmlns="http://www.w3.org/2000/svg"
+	              class="h-5 w-5 mr-2 text-yellow-600"
+	              fill="none"
+	              viewBox="0 0 24 24"
+	              stroke="currentColor"
+	            >
+	              <path
+	                stroke-linecap="round"
+	                stroke-linejoin="round"
+	                stroke-width="2"
+	                d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16z"
+	              />
+	            </svg>
+	            Redes Sociales:
+	            <a href="https://facebook.com/cruceroscaribe" class="ml-1 text-yellow-600 hover:underline">Facebook</a>,
+	            <a href="https://instagram.com/cruceroscaribe" class="ml-1 text-yellow-600 hover:underline">Instagram</a>
+	          </p>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer bg-gray-900 text-white py-12">
+	  <div class="container mx-auto px-4">
+	    <!-- Contenido del Footer -->
+	    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+	      <!-- Menú Secundario -->
+	      <div>
+	        <h3 class="text-lg font-semibold mb-4">Enlaces Útiles</h3>
+	        <ul class="space-y-2">
+	          <li>
+	            <a href="/terminos-y-condiciones" class="hover:text-blue-400 transition duration-300">
+	              Términos y Condiciones
+	            </a>
+	          </li>
+	          <li>
+	            <a href="/politica-de-privacidad" class="hover:text-blue-400 transition duration-300">
+	              Política de Privacidad
+	            </a>
+	          </li>
+	          <li>
+	            <a href="/preguntas-frecuentes" class="hover:text-blue-400 transition duration-300">
+	              Preguntas Frecuentes
+	            </a>
+	          </li>
+	        </ul>
+	      </div>
+
+	      <!-- Redes Sociales -->
+	      <div>
+	        <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+	        <div class="flex space-x-4">
+	          <a href="https://facebook.com/cruceroscaribe" class="hover:text-blue-500 transition duration-300">
+	            <svg
+	              xmlns="http://www.w3.org/2000/svg"
+	              class="h-6 w-6"
+	              fill="none"
+	              viewBox="0 0 24 24"
+	              stroke="currentColor"
+	            >
+	              <path
+	                stroke-linecap="round"
+	                stroke-linejoin="round"
+	                stroke-width="2"
+	                d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489v-6.989H8.797V12h2.839V9.873c0-2.807 1.823-4.328 4.18-4.328 1.18 0 2.248.178 2.248.178v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.768H15v6.812C19.135 20.166 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+	              />
+	            </svg>
+	          </a>
+	          <a href="https://instagram.com/cruceroscaribe" class="hover:text-pink-500 transition duration-300">
+	            <svg
+	              xmlns="http://www.w3.org/2000/svg"
+	              class="h-6 w-6"
+	              fill="none"
+	              viewBox="0 0 24 24"
+	              stroke="currentColor"
+	            >
+	              <path
+	                stroke-linecap="round"
+	                stroke-linejoin="round"
+	                stroke-width="2"
+	                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm3-8c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm-3-5c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z"
+	              />
+	            </svg>
+	          </a>
+	          <a href="https://twitter.com/cruceroscaribe" class="hover:text-blue-500 transition duration-300">
+	            <svg
+	              xmlns="http://www.w3.org/2000/svg"
+	              class="h-6 w-6"
+	              fill="none"
+	              viewBox="0 0 24 24"
+	              stroke="currentColor"
+	            >
+	              <path
+	                stroke-linecap="round"
+	                stroke-linejoin="round"
+	                stroke-width="2"
+	                d="M23 3a10.9 10.9 0 01-3.14 1.53A9.96 9.96 0 0020 11.8c0 .26-.01.51-.03.76A10.019 10.019 0 0123 3zm-11 9.3v1.6c0 .2-.04.4-.1.58a3.14 3.14 0 01-2.66 1.11 3.14 3.14 0 01-2.66-1.11c-.06-.18-.1-.38-.1-.58v-1.6a7.02 7.02 0 003.76-1.14 7.02 7.02 0 003.76 1.14zM8.2 12.2a4.2 4.2 0 00-1.94 3.44 4.2 4.2 0 001.94 3.44 4.2 4.2 0 001.94-3.44 4.2 4.2 0 00-1.94-3.44zm10 1.8c0 1.2-.4 2.2-1 3a4.01 4.01 0 01-3 1 4.01 4.01 0 01-3-1c-.6-.8-1-1.8-1-3v-1.6a7.02 7.02 0 003.76-1.14 7.02 7.02 0 003.76 1.14v1.6z"
+	              />
+	            </svg>
+	          </a>
+	        </div>
+	      </div>
+
+	      <!-- Newsletter -->
+	      <div>
+	        <h3 class="text-lg font-semibold mb-4">Suscríbete a nuestro boletín</h3>
+	        <form action="/subscribe" method="POST" class="flex flex-col space-y-4">
+	          <input
+	            type="email"
+	            name="email"
+	            placeholder="Ingresa tu correo electrónico"
+	            required
+	            class="px-4 py-2 border bg-white border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+	          />
+	          <button
+	            type="submit"
+	            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300"
+	          >
+	            Suscribirse
+	          </button>
+	        </form>
+	      </div>
+	    </div>
+
+	    <!-- Derechos de Autor -->
+	    <div class="mt-8 text-center text-sm text-gray-400">
+	      &copy; {currentYear} Cruceros Caribe. Todos los derechos reservados.
+	    </div>
+	  </div>
+	</footer>
+</Layout>

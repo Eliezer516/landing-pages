@@ -1,0 +1,37 @@
+---
+import '../styles/global.css'
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+		<title>Cruceros Caribe - Explora el Caribe colombiano en un crucero inolvidable</title>
+	</head>
+	<body>
+		<slot />
+		<script>
+			import AOS from 'aos';
+			import 'aos/dist/aos.css';
+			AOS.init();
+		</script>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		width: 100%;
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+
+	html {
+/*		scroll-behavior: smooth;*/
+		scroll-padding: 72px;
+	}
+</style>
